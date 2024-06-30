@@ -4,19 +4,19 @@ console.log("Javascript is connected")
 const theButtons = document.querySelectorAll("#buttonHolder img");
 const puzzleBoard = document.querySelector(".puzzle-board");
 const puzzlePieces = document.querySelectorAll(".puzzle-pieces img");
-const dropZones = document.querySelectorAll(".puzzle-board");
+const dropZones = document.querySelectorAll(".drop-zone");
 let draggedPiece;
 
 //functions 
 function changeBGImage(event) {
-    //console.log here is just for making sure they event listeners
-    // are working and connected to the images
-    console.log("ChangeBGimage called");
-    console.log(this.id);
+    // console.log here is just for making sure the event listeners are working and connected to the images
+    // console.log("ChangeBGimage called");
+    // console.log(this.id);
 
     // METHOD 1
-    // changing the background image to the puzzle board
-    // this is the css property we r changing: background-image: url('../images/backGround0.jpg');
+    // console.log(this.id);
+    // this is the css property we r changing: 
+    // background-image: url('../images/backGround0.jpg');
     // puzzleBoard.style.backgroundImage = `url('./images/backGround${this.id}.jpg')`;
 
 
@@ -36,7 +36,12 @@ function handleOver(e) {
 }
 
 function handleDrop() {
-    this.appendChild(draggedPiece);
+    if (this.children.length >=1){
+        return;
+    } 
+    else {
+        this.appendChild(draggedPiece);
+}
 }
 
 //event listeners
