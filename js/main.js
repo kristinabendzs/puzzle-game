@@ -5,6 +5,8 @@ const theButtons = document.querySelectorAll("#buttonHolder img");
 const puzzleBoard = document.querySelector(".puzzle-board");
 const puzzlePieces = document.querySelectorAll(".puzzle-pieces img");
 const dropZones = document.querySelectorAll(".drop-zone");
+const puzzlePieceHolder = document.querySelector(".puzzle-pieces");
+const resetButton = document.querySelector("#resetBut")
 let draggedPiece;
 
 //functions 
@@ -19,6 +21,7 @@ function changeBGImage(event) {
     // background-image: url('../images/backGround0.jpg');
     // puzzleBoard.style.backgroundImage = `url('./images/backGround${this.id}.jpg')`;
 
+    puzzlePieces.forEach(piece => puzzlePieceHolder.appendChild(piece))
 
     // METHOD 2
     console.log(event.currentTarget.id);
@@ -44,6 +47,9 @@ function handleDrop() {
 }
 }
 
+function resetBoard(e) {
+    puzzlePieces.forEach(piece => puzzlePieceHolder.appendChild(piece))
+}
 //event listeners
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 
@@ -52,3 +58,5 @@ puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDra
 dropZones.forEach(zone => zone.addEventListener("dragover", handleOver));
 
 dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
+
+resetButton.addEventListener("click", resetBoard);
