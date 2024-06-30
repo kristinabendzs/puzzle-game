@@ -50,6 +50,7 @@ function handleDrop() {
 function resetBoard(e) {
     puzzlePieces.forEach(piece => puzzlePieceHolder.appendChild(piece))
 }
+
 //event listeners
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 
